@@ -1,14 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-    FOOD DELIVERY INTERFACE
+    <h1 style="text-align: center;">FOOD DELIVERY INTERFACE</h1>
+    <script>
+        function calculate(){
+            document.getElementById("order_summary").style.display="block"; 
+                uname = document.getElementById("cuname");
+                 mnum = document.getElementById("mname");
+                 oburger = document.getElementById("burger");
+                 oroll = document.getElementById("roll");
+                 aonname= document.getElementById("fries");
+                 var mcost = 0;
+                 var acost = 0;
+                 var mealname=" ";
+                 var aname=" ";
+                 if(burger.checked)
+                 {
+                    mcost =200;
+                    mealname=oburger.value;
+                    
+                 }
+                 if(roll.checked)
+                 {
+                    mcost =160;
+                    mealname=oroll.value;
+                 }
+                 if(fries.checked)
+                 {
+                    acost = 60;
+                    mcost+=acost;
+                      aname=aonname.value +"<br>";
+
+                 }
+           document.getElementById("usname").innerHTML = uname.value;
+           document.getElementById("mnumber").innerHTML = mnum.value;
+           document.getElementById("meal").innerHTML =mealname ;
+           document.getElementById("addon").innerHTML =aname ;
+           document.getElementById("tbill").innerHTML = mcost;
+
+        }
+    </script>
+    <style>
+        tr {
+            background-color: maroon;
+            text-align: center;
+            color: white;
+        }
+        dt{
+            background-color: maroon;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<table>
+    <div>
 
-
-    
+   
+<table width="800" id="form" border="2" align="center">
+    <tr>
+        <td colspan="2">Cutomer Details</td>
+    </tr>
+    <tr> 
+        <td>Cutomer Name</td>
+        <td><input type="text" id="cuname"  placeholder=" Name "></td>
+    </tr>
+    <tr> 
+        <td>Mobile Number</td>
+        <td><input type="text" id="mname"  placeholder=" Mobile"></td>
+    </tr>
+    <tr> 
+        <td>Select a Meal</td>
+        <td> <input type="text" height="100"></td>
+    </tr>
+     <tr  >
+        <td><img src="burger.jpg" width="200" height="200"> <br>
+        <input type="radio" id="burger" value="omgburger" ><br>Burger(200/-)</td>
+         <td><img src="roll.jpg" width="200" height="200"> <br>
+        <input type="radio" id="roll" value="omgRoll"><br>Roll(150/-)</td>
+    </tr>
+      <tr >
+        <td colspan="2">Add Ons</td>
+      </tr>
+      <tr >
+        <td colspan="2"><img src="fries.jpg"><br><input type="checkbox" id="fries" value="Large Fries"> Largefries(60/-) </td>
+      </tr>
+      <tr >
+        <td colspan="2"> <input type="button" onclick="calculate();" value="submit"></td> </tr>
 </table>
-
+</div>
+<dl id="order_summary" style="display:none;">
+    <h2>Order Summary</h2>
+<dt>Customer Name</dt>
+<dd id="usname"></dd>
+<dt>Mobile Number</dt>
+<dd id="mnumber"></dd>
+<dt>Meal</dt>
+<dd id="meal"></dd>
+<dt> Add On's</dt>
+<dd id="addon"></dd>
+<dt>Total bill amount</dt>
+<dd id="tbill"></dd>
+<input type="button" value="print Bill" onclick="window.print()">
+</dl>
 </body>
 </html>
